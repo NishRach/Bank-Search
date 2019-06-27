@@ -1,0 +1,33 @@
+<h1>Bank Search</h1>
+<div class="container">
+  <label>City: </label>
+  <select>
+    <option value="BANGLORE">Banglore</option>
+    <option value="MUMBAI">Mumbai</option>
+    <option value="DELHI">Delhi</option>
+    <option value="CHENNAI">Chennai</option>
+    <option value="CHANDIGARH">Chandigarh</option>
+  </select>
+<input class="searchBox" type="text" placeholder="Search(Bank Name)..." (keyup)="bankSearch()"[(ngModel)]="search">
+
+  <button class="bt-action" (click)="onMoveToFav('fav')">Move to favourites</button>
+</div>
+<!-- <span class="label">Page Size:</span> <span class="value" id="lbPageSize">-</span> -->
+<ag-grid-angular
+  style="width: 1280px; height: 550px; padding-top: 10px;"
+  [columnDefs]="columnDefs"
+  [animateRows]="true"
+  [pagination]="true"
+  [defaultColDef]="defaultColDef"
+  [groupDefaultExpanded]="groupDefaultExpanded"
+  [rowData]="rowData"
+  [rememberGroupStateWhenNewData]="true"
+  [paginationPageSize]=50
+  [suppressRowClickSelection]="true"
+  [rowSelection]="rowSelection"
+  [rowMultiSelectWithClick]="true"
+  [groupSelectsChildren]="true"
+  [suppressAggFuncInHeader]="true"
+  [getRowClass]="getRowClass"
+  (gridReady)="onGridReady($event)">
+</ag-grid-angular>
